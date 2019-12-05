@@ -1,20 +1,21 @@
 class PigLatinizer
   
   def piglatinize(word)
-    word[0] =~ /[AEIOUaeiou]/ ? word.gsub(/([AEIOUaeiou])(\w+)*/, '\1\2way') : word.gsub(/([^AEIOUaeiou])(\w+)*/, '\2\1ay')
-    
-        vowels = %w{a e i o u}
-    word.each_char do |chr|
-    index = word.index(chr)
-    if index != 0 && vowels.include?(chr.downcase)
-      consonants = word.slice!(0..index-1)
-      return word + consonants + "ay"
-    elsif index == 0 && vowels.include?(chr.downcase)
-      return word + "ay"
-    end
+  
+    pl_words = []
+      split_words = word.split()
+  
+      split_words.each do |word|
+        if word[0].scan(/[aeiouAEIOU]/).count == 1 
+          pl_words << word + 'way'
+        else   
+          words = word.split(/[aeiouAEIOU].*/)[0]
+          word.slice!(0 .. words.length-1)
+          pl_words << word + words + 'ay' 
+        end 
+      end 
+  
+      pl_words.join(' ')
   end
-  end
-  
-  
-  
+
 end
