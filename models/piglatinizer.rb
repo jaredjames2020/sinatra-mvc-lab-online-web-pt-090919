@@ -1,6 +1,6 @@
 class PigLatinizer
   
-  def piglatinize(word)
+  def initialize(word)
   
     pl_words = []
       split_words = word.split()
