@@ -2,7 +2,7 @@ class PigLatinizer
   
   def PigLatinizer(word)
   
-    pl_words = []
+      pl_words = []
       split_words = word.split()
   
       split_words.each do |word|
