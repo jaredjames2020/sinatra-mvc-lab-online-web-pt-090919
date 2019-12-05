@@ -1,7 +1,7 @@
 class PigLatinizer
   
   def piglatinize(word)
-    vowels = %w{a e i o u}
+    vowels = %w{A E I O U a e i o u}
     word.each_char do |chr|
     index = word.index(chr)
     if index != 0 && vowels.include?(chr.downcase)
